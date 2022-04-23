@@ -34,7 +34,7 @@ terraform destroy -auto-approve
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws\_region | the name of AWS region | `string` | n/a | yes |
-| cluster\_name | the name of EKS cluster to deploy this helm chart | `string` | n/a | yes |
+| eks\_cluster\_name | the name of EKS cluster to deploy this helm chart | `string` | n/a | yes |
 
 ## Outputs
 
