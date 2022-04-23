@@ -26,7 +26,7 @@ resource "null_resource" "helm_test_csi_secrets_store" {
 echo "$KUBECONFIG" > ./kubeconfig
 chmod 400 ./kubeconfig
 export KUBECONFIG=./kubeconfig
-kubectl apply -f "https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml"
+kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
 EOF
   }
 }
