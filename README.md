@@ -1,3 +1,7 @@
+# AWS Secrets Manager and Config Provider for Secret Store CSI Driver
+
+AWS offers two services to manage secrets and parameters conveniently in your code. AWS Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, certificates, and other secrets throughout their lifecycle. AWS Systems Manager Parameter Store provides hierarchical storage for configuration data. The AWS provider for the Secrets Store CSI Driver allows you to make secrets stored in Secrets Manager and parameters stored in Parameter Store appear as files mounted in Kubernetes pods.
+
 ## Requirements
 
 | Name | Version |
@@ -44,3 +48,14 @@ terraform destroy -auto-approve
 | name | the name of the release |
 | namespace | the kubernetes namespace of the release |
 
+## Examples
+
+```bash
+module "aws-csi-secrets-store" {
+  source = "../../"
+
+  eks_cluster_name = "eksdemo1"
+  aws_region       = "us-east-1"
+
+}
+```
