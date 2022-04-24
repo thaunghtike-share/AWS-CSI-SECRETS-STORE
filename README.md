@@ -56,6 +56,19 @@ module "aws-csi-secrets-store" {
 
   eks_cluster_name = "eksdemo1"
   aws_region       = "us-east-1"
+}
 
+resource "null_resource" "delete-aws-provider" {
+  provisioner "local-exec" {
+    when    = destroy
+    command = <<EOF
+export KUBECONFIG=./kubeconfig
+kubectl delete -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
+rm -rf ./kubeconfig
+EOF
+  }
+  depends_on = [
+    module.aws-csi-secrets-store
+  ]
 }
 ```
