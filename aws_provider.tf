@@ -27,7 +27,6 @@ echo "$KUBECONFIG" > ./kubeconfig
 chmod 400 ./kubeconfig
 export KUBECONFIG=./kubeconfig
 kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
-rm -rf ./kubeconfig    
 EOF
   }
 }
